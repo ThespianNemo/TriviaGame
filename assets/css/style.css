@@ -27,6 +27,21 @@ body {
     text-align: center;
 }
 
+#right {
+    text-align: center;
+    font-size: 19px;
+}
+
+#wrong {
+    text-align: center;
+    font-size: 19px;
+}
+
+#not-known {
+    text-align: center;
+    font-size: 19px;
+}
+
 .questions-answers {
     background-color: white;  
     text-align: left;

@@ -1,5 +1,3 @@
-
-
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unAnswered = 0;
@@ -157,6 +155,9 @@ function stop() {
 //  Let the user know time's up
     if (timer === 0) {
     $("#countdown").html("<h2>" + "TIME'S UP!" + "</h2>");
+
+    //Add 1 to unanswered questions counter
+    unAnswered++;
     };
 
     //Display correct answer
@@ -166,8 +167,7 @@ function stop() {
     //  Set The timer back to 21 seconds
     timer = 21;
 
-    //Add 1 to unanswered questions counter
-    unAnswered++;
+    
     
     //restart counter
 
@@ -185,28 +185,29 @@ $("#start").on("click", function () {
         
         if (x != screenCorrectAnswer) {
             incorrectAnswer++;
-            $("#countdown").html("<h2>" + "INCORRECT!" + "</h2>");
+            $("#countdown").html("<h2>" + "NOPE! The correct answer is " + screenCorrectAnswer + "</h2>");
         } else {
             correctAnswer++;
-            $("#countdown").html("<h2>" + "CORRECT!" + "</h2>");
+            $("#countdown").html("<h2>" + "CORRECT! EXCELLENT!" + "</h2>");
         }
 
         stop();
         qcounter++;
+
+        if (qcounter < 10) {
         questionAnswer(qcounter);
+        } else {
+            wrapItUp();
+        }
     })
 
     function questionAnswer(qcounter) {
         
     $("#question").text(questionList[qcounter].question);
     $("#answer1").text(questionList[qcounter].answers[0]);
-    $("#answer1").show();
     $("#answer2").text(questionList[qcounter].answers[1]);
-    $("#answer2").show();
     $("#answer3").text(questionList[qcounter].answers[2]);
-    $("#answer3").show();
     $("#answer4").text(questionList[qcounter].answers[3]);
-    $("#answer4").show();
 
     //  Execute the run function.
     run();
@@ -224,4 +225,13 @@ $("#start").on("click", function () {
         } else {
             screenCorrectAnswer = 4;
         }
+    }
+
+    function wrapItUp() {
+        $("#right").html("<strong>" + "<p>" + "Total correct answers = " + correctAnswer + "</p>") + "<strong>";
+        $("#wrong").html("<strong>" + "<p>" + "Total incorrect answers = " + incorrectAnswer + "</p>" + "<strong>");
+        $("#not-known").html("<strong>" + "<p>" + "Total unanswered questions = " + unAnswered + "</p>" + "<strong>");
+        //$("#wrong").text(incorrectAnswer);
+        //$("#not-known").text(unAnswered);
+        $("#start-over").show();
     }
