@@ -4,12 +4,6 @@ var unAnswered = 0;
 var correct;
 var qcounter = 0;
 
-//Initialize screen answer assignments
-var one = 1;
-var two = 2;
-var three = 3;
-var four = 4;
-
 //  Set the timer to 21 seconds
 var timer = 21;
 
@@ -146,7 +140,6 @@ function decrement() {
     }
 }
 
-//  The stop function
 function stop() {
 
 //  Clears the intervalId
@@ -160,25 +153,46 @@ function stop() {
     unAnswered++;
     };
 
-    //Display correct answer
+    
 
     //show next question and possible answers
 
     //  Set The timer back to 21 seconds
     timer = 21;
 
-    
+    if (qcounter < 9) {
+        //--------------------------------------------------------------------------------------
+        //Display correct answer
+        $("#countdown").html("<h2>" + "The correct answer is " + correct + "</h2>");
+        questionAnswer(qcounter);
+    }
     
     //restart counter
 
     //run();
 }
 
+
 $("#start").on("click", function () {
 
     $("#start").hide();
     questionAnswer(qcounter);
 });
+
+$("#start-over").on("click", function () {
+    $("#start-over").hide();
+    correctAnswer = 0;
+    incorrectAnswer = 0;
+    unAnswered = 0;
+    correct;
+    qcounter = 0;
+
+    $("#right").empty();
+    $("#wrong").empty();
+    $("#not-known").empty();
+
+    questionAnswer(qcounter);
+})
 
     $(".answer-value").on("click", function () {
         var x = ($(this).attr("attr"));
@@ -199,27 +213,28 @@ $("#start").on("click", function () {
         } else {
             wrapItUp();
         }
-    })
+    });
 
     function questionAnswer(qcounter) {
-        
-    $("#question").text(questionList[qcounter].question);
-    $("#answer1").text(questionList[qcounter].answers[0]);
-    $("#answer2").text(questionList[qcounter].answers[1]);
-    $("#answer3").text(questionList[qcounter].answers[2]);
-    $("#answer4").text(questionList[qcounter].answers[3]);
+    
+        correct = questionList[qcounter].answers[4];
+        $("#question").text(questionList[qcounter].question);
+        $("#answer1").text(questionList[qcounter].answers[0]);
+        $("#answer2").text(questionList[qcounter].answers[1]);
+        $("#answer3").text(questionList[qcounter].answers[2]);
+        $("#answer4").text(questionList[qcounter].answers[3]);
 
     //  Execute the run function.
-    run();
+        run();
     
-    correct = questionList[qcounter].answers[4];
+    //correct = questionList[qcounter].answers[4];
     
-    screenCorrectAnswer = 0;
+        screenCorrectAnswer = 0;
 
-    if (correct === questionList[qcounter].answers[0]) {
-        screenCorrectAnswer = 1;
+        if (correct === questionList[qcounter].answers[0]) {
+            screenCorrectAnswer = 1;
         } else if (correct === questionList[qcounter].answers[1]) {
-        screenCorrectAnswer = 2;
+            screenCorrectAnswer = 2;
         } else if (correct === questionList[qcounter].answers[2]) {
             screenCorrectAnswer = 3;
         } else {
@@ -231,7 +246,6 @@ $("#start").on("click", function () {
         $("#right").html("<strong>" + "<p>" + "Total correct answers = " + correctAnswer + "</p>") + "<strong>";
         $("#wrong").html("<strong>" + "<p>" + "Total incorrect answers = " + incorrectAnswer + "</p>" + "<strong>");
         $("#not-known").html("<strong>" + "<p>" + "Total unanswered questions = " + unAnswered + "</p>" + "<strong>");
-        //$("#wrong").text(incorrectAnswer);
-        //$("#not-known").text(unAnswered);
+    
         $("#start-over").show();
-    }
+    };  
