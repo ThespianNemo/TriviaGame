@@ -1,71 +1,83 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-    <head>
-        <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
 
-        <title>Totally Trivial Trivia</title>
+    <title>Totally Trivial Trivia</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
-    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 
-    <body>
-        <div class="jumbotron">            
-            <h1>Totally Trivial Trivia!</h1>
-            
-            <div class="buttons">
-                <button id="start"><h2>Start</h2></button>                    
-                <button id="start-over"><h2>Start Over?</h2></button>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="page-header">
+        <h1>Totally Trivial Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <a class="waves-effect waves-light btn light-green" id="start">START</a>
+        <a class="waves-effect waves-light btn light-green" id="start-over">START OVER?</a>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col s12">
+                <div id="countdown"></div>
             </div>
         </div>
 
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="countdown"></div>                                       
-                </div>
-            </div>
+        <div class="row">
+            <div class="col s12 m4 l4" id="right"></div>
+            <div class="col s12 m4 l4" id="wrong"></div>
+            <div class="col s12 m4 l4" id="not-known"></div>
+        </div>
+        <div class="row.row-eq-height">
+            <div class="col s6">
 
-            <div class="row">
-                <div class="col-lg-4">
-                    <div id="right"></div>                                       
-                </div>
-                <div class="col-lg-4">
-                    <div id="wrong"></div>                                       
-                </div>
-                <div class="col-lg-4">
-                    <div id="not-known"></div>                                       
-                </div>
-            </div>
+                <section class="questions-answers">
+                    <div id="target">
+                        <span id="question"></span>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <section class="questions-answers">  
-                        <div id="target">
-                                <span id="question"></span>
-                        </div>
-                    </section>
-                </div>
-    
-                <div class="col-lg-6">
-                    <section class="questions-answers">
-                        <ol>
-                            <li><span id="answer1" class="answer-value" attr = 1></span></li>
-                            <li><span id="answer2" class="answer-value" attr = 2></span></li>
-                            <li><span id="answer3" class="answer-value" attr = 3></span></li>
-                            <li><span id="answer4" class="answer-value" attr = 4></span></li>
-                        </ol>
-                    </section>
-    
                     </div>
-    
-                </div>
+                </section>
+            </div>
+            <div class="col s6">
+                <section class="questions-answers">
+                    <ol>
+                        <li>
+                            <span id="answer1" class="answer-value" attr=1></span>
+                        </li>
+                        <li>
+                            <span id="answer2" class="answer-value" attr=2></span>
+                        </li>
+                        <li>
+                            <span id="answer3" class="answer-value" attr=3></span>
+                        </li>
+                        <li>
+                            <span id="answer4" class="answer-value" attr=4></span>
+                        </li>
+                    </ol>
+                </section>
+            </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
-    </body>
+</body>
+
 </html>
-    

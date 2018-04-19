@@ -3,24 +3,25 @@ body {
     font-size: 18px;
     line-height: 34px;
     background-color: #aa0303;
-    
+    background-image: url('../images/film.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-.jumbotron {
+.page-header {
+    font-family: 'Great Vibes', cursive;
     text-align: center;
-    background-color: white;
-    color: #e00707;
+    color: #d3984c;
   }
 
 .container {
-    background-color: white;
-    color: #e00707;
+    color: #d3984c;
     padding-bottom: 10px;
     text-align: center;
 }
 
-.buttons {
-    color: #1d07e0;
+.waves-effect {
+    color: black;
 }
 
 .responses {
@@ -43,16 +44,24 @@ body {
 }
 
 .questions-answers {
-    background-color: white;  
     text-align: left;
-    border-top: 10px solid white;
     padding: 20px 10px; 
 }
 
 #countdown {
-    border-top: 10px solid white;
-    padding: 20px 10px; 
-    color: black;
-    padding-top: 10px;
     text-align: center;
+    margin: 10px 10px;
 }
+
+.col {
+    height: 100%;
+    text-align: left; 
+    background-color: rgb(5, 0, 0, 0.8);
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
